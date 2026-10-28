@@ -80,6 +80,7 @@
       accent-color = "pink";
       color-scheme = "prefer-dark";
     };
+    "org/gnome/desktop/peripherals/mouse".accel-profile = "flat";
     "org/gnome/desktop/wm/preferences".button-layout = ":minimize,maximize,close";
     "org/gnome/desktop/input-sources" = {
       sources = [
