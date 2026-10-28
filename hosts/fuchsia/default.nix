@@ -1,6 +1,5 @@
 {pkgs, ...}: let
-  yanvillePublicKey = builtins.readFile ./keys/yanville.pub;
-  trwzPublicKey = builtins.readFile ./keys/trwz.pub;
+  keys = import ../keys.nix;
 in {
   imports = [
     ./hardware-configuration.nix
@@ -29,14 +28,14 @@ in {
     isNormalUser = true;
     extraGroups = ["wheel"];
     shell = pkgs.zsh;
-    openssh.authorizedKeys.keys = [yanvillePublicKey];
+    openssh.authorizedKeys.keys = [keys.fuchsia.yanville];
   };
 
   users.users.trwz = {
     isNormalUser = true;
     extraGroups = ["wheel"];
     shell = pkgs.zsh;
-    openssh.authorizedKeys.keys = [trwzPublicKey];
+    openssh.authorizedKeys.keys = [keys.fuchsia.trwz];
   };
 
   programs.zsh = {

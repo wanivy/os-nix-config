@@ -4,9 +4,10 @@
   ...
 }: let
   email = "yamqsaya@gmail.com";
-  publicKey = builtins.readFile ../../keys/yanville.pub;
+  keys = import ../../../keys.nix;
+  publicKey = keys.momiji.yanville;
 in {
-  home.file.".ssh/id_ed25519.pub".source = ../../keys/yanville.pub;
+  home.file.".ssh/id_ed25519.pub".text = "${publicKey}\n";
 
   programs.git = {
     enable = true;
