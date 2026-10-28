@@ -16,6 +16,7 @@
     ./programs/libreoffice.nix
     ./programs/thunderbird.nix
     ./programs/sober.nix
+    ./programs/wayclip.nix
   ];
 
   home = {
