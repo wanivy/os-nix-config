@@ -33,6 +33,7 @@
       openssl
       agenix.packages.${pkgs.stdenv.hostPlatform.system}.default
     ];
+    file.".local/share/Steam/package/beta".text = "publicbeta";
   };
 
   programs = {
