@@ -1,9 +1,8 @@
 let
-  yanville = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIO3GjcUT4hKEmqVg4DaJhdySRWNdRYgqfleaP2p/aK3b yanville@fuchsia";
-  fuchsia = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIBVQcqst4mLA3dmCCHHIfGndv86BewtxU/Wt7zN5URGf";
+  keys = import ./hosts/keys.nix;
   recipients = [
-    yanville
-    fuchsia
+    keys.fuchsia.yanville
+    keys.fuchsia.host
   ];
 in {
   "secrets/fuchsia/pterodactyl/app-key.age".publicKeys = recipients;

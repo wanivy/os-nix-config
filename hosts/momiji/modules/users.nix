@@ -1,12 +1,14 @@
-{pkgs, ...}: {
+{pkgs, ...}: let
+  keys = import ../../keys.nix;
+in {
   users = {
     defaultUserShell = pkgs.zsh;
     users = {
-      root.openssh.authorizedKeys.keyFiles = [../keys/yanville.pub];
+      root.openssh.authorizedKeys.keys = [keys.momiji.yanville];
       yanville = {
         isNormalUser = true;
         extraGroups = ["wheel" "networkmanager"];
-        openssh.authorizedKeys.keyFiles = [../keys/yanville.pub];
+        openssh.authorizedKeys.keys = [keys.momiji.yanville];
       };
     };
   };
