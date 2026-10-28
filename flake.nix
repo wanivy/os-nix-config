@@ -51,6 +51,7 @@
   outputs = {
     agenix,
     nixpkgs,
+    nixpkgs-unstable,
     pterodactyl,
     home-manager,
     zen-browser,
@@ -64,6 +65,7 @@
   }: {
     nixosConfigurations.momiji = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
+      specialArgs = {inherit nixpkgs-unstable;};
       modules = [
         home-manager.nixosModules.home-manager
         nix-flatpak.nixosModules.nix-flatpak

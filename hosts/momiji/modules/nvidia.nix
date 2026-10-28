@@ -1,4 +1,10 @@
-{config, ...}: {
+{
+  config,
+  nixpkgs-unstable,
+  ...
+}: let
+  nvidiaPackages = config.boot.kernelPackages.callPackage "${nixpkgs-unstable}/pkgs/os-specific/linux/nvidia-x11/default.nix" {};
+in {
   services.xserver.videoDrivers = ["nvidia"];
   hardware = {
     graphics = {
@@ -7,7 +13,7 @@
     };
     nvidia = {
       open = true;
-      package = config.boot.kernelPackages.nvidiaPackages.stable;
+      package = nvidiaPackages.latest;
       modesetting.enable = true;
       powerManagement.enable = true;
       videoAcceleration = true;
