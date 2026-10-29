@@ -3,8 +3,8 @@
   freesm,
   ...
 }: let
-  java21 = pkgs.jdk21;
-  java25 = pkgs.jdk25;
+  java21 = pkgs.javaPackages.compiler.temurin-bin.jdk-21;
+  java25 = pkgs.javaPackages.compiler.temurin-bin.jdk-25;
   freesmLauncher =
     (freesm.packages.${pkgs.stdenv.hostPlatform.system}.freesmlauncher.override {
       jdks = [java21 java25];
@@ -18,7 +18,7 @@
 in {
   programs.java = {
     enable = true;
-    package = java21;
+    package = java25;
   };
 
   home = {
