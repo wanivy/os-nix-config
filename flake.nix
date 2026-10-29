@@ -62,10 +62,22 @@
     lanzaboote,
     disko,
     ...
-  }: {
+  }: let
+    mkPkgsUnstable = system:
+      import nixpkgs-unstable {
+        inherit system;
+        config.allowUnfree = true;
+      };
+    momijiSystem = "x86_64-linux";
+    momijiPkgsUnstable = mkPkgsUnstable momijiSystem;
+    fuchsiaSystem = "x86_64-linux";
+  in {
     nixosConfigurations.momiji = nixpkgs.lib.nixosSystem {
-      system = "x86_64-linux";
-      specialArgs = {inherit nixpkgs-unstable;};
+      system = momijiSystem;
+      specialArgs = {
+        inherit nixpkgs-unstable;
+        pkgsUnstable = momijiPkgsUnstable;
+      };
       modules = [
         home-manager.nixosModules.home-manager
         nix-flatpak.nixosModules.nix-flatpak
@@ -78,13 +90,16 @@
               spicetify.homeManagerModules.spicetify
               nixcord.homeModules.nixcord
             ];
-            extraSpecialArgs = {inherit agenix spicetify freesm;};
+            extraSpecialArgs = {
+              inherit agenix spicetify freesm;
+              pkgsUnstable = momijiPkgsUnstable;
+            };
           };
         }
       ];
     };
     nixosConfigurations.fuchsia = nixpkgs.lib.nixosSystem {
-      system = "x86_64-linux";
+      system = fuchsiaSystem;
       modules = [
         agenix.nixosModules.default
         disko.nixosModules.disko
@@ -93,6 +108,6 @@
         ./hosts/fuchsia
       ];
     };
-    formatter.x86_64-linux = nixpkgs.legacyPackages.x86_64-linux.alejandra;
+    formatter.${momijiSystem} = nixpkgs.legacyPackages.${momijiSystem}.alejandra;
   };
 }
