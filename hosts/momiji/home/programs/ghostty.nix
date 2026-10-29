@@ -2,7 +2,11 @@
   programs.ghostty = {
     enable = true;
     enableZshIntegration = true;
-    settings.theme = "pastel-pink";
+    settings = {
+      theme = "pastel-pink";
+      bell-features = "no-system,no-audio,no-attention,no-title,no-border";
+      term = "xterm-256color";
+    };
 
     themes.pastel-pink = {
       background = "211820";
