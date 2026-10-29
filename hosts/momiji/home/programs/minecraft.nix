@@ -5,6 +5,16 @@
 }: let
   java21 = pkgs.jdk21;
   java25 = pkgs.jdk25;
+  freesmLauncher =
+    (freesm.packages.${pkgs.stdenv.hostPlatform.system}.freesmlauncher.override {
+      jdks = [java21 java25];
+    }).overrideAttrs (old: {
+      qtWrapperArgs =
+        (old.qtWrapperArgs or [])
+        ++ [
+          "--prefix XDG_DATA_DIRS : ${pkgs.gtk3}/share/gsettings-schemas/${pkgs.gtk3.name}"
+        ];
+    });
 in {
   programs.java = {
     enable = true;
@@ -12,11 +22,7 @@ in {
   };
 
   home = {
-    packages = [
-      (freesm.packages.${pkgs.stdenv.hostPlatform.system}.freesmlauncher.override {
-        jdks = [java21 java25];
-      })
-    ];
+    packages = [freesmLauncher];
     file = {
       ".jdks/java-21".source = java21.home;
       ".jdks/java-25".source = java25.home;
