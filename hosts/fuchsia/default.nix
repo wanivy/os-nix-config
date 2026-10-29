@@ -2,7 +2,7 @@
   keys = import ../keys.nix;
 in {
   imports = [
-    ./hardware-configuration.nix
+    ./hardware.nix
     ./networking.nix
     ./modules/caddy/sites/pterodactyl.nix
     ./modules/mariadb
