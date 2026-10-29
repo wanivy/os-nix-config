@@ -63,25 +63,23 @@
     disko,
     ...
   }: let
-    mkPkgsUnstable = system:
-      import nixpkgs-unstable {
-        inherit system;
+    unstableOverlay = final: _prev: {
+      unstable = import nixpkgs-unstable {
+        system = final.stdenv.hostPlatform.system;
         config.allowUnfree = true;
       };
+    };
     momijiSystem = "x86_64-linux";
-    momijiPkgsUnstable = mkPkgsUnstable momijiSystem;
     fuchsiaSystem = "x86_64-linux";
   in {
     nixosConfigurations.momiji = nixpkgs.lib.nixosSystem {
       system = momijiSystem;
-      specialArgs = {
-        inherit nixpkgs-unstable;
-        pkgsUnstable = momijiPkgsUnstable;
-      };
+      specialArgs = {inherit nixpkgs-unstable;};
       modules = [
         home-manager.nixosModules.home-manager
         nix-flatpak.nixosModules.nix-flatpak
         lanzaboote.nixosModules.lanzaboote
+        {nixpkgs.overlays = [unstableOverlay];}
         ./hosts/momiji
         {
           home-manager = {
@@ -90,10 +88,7 @@
               spicetify.homeManagerModules.spicetify
               nixcord.homeModules.nixcord
             ];
-            extraSpecialArgs = {
-              inherit agenix spicetify freesm;
-              pkgsUnstable = momijiPkgsUnstable;
-            };
+            extraSpecialArgs = {inherit agenix spicetify freesm;};
           };
         }
       ];
@@ -104,7 +99,7 @@
         agenix.nixosModules.default
         disko.nixosModules.disko
         pterodactyl.nixosModules.default
-        {nixpkgs.overlays = [pterodactyl.overlays.default];}
+        {nixpkgs.overlays = [unstableOverlay pterodactyl.overlays.default];}
         ./hosts/fuchsia
       ];
     };
