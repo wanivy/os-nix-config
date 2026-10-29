@@ -74,5 +74,5 @@
     };
   };
 
-  environment.systemPackages = with pkgs; [git vim nano pciutils usbutils iperf3];
+  environment.systemPackages = with pkgs; [git vim nano pciutils usbutils iperf3 ntfs3g];
 }
