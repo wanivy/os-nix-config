@@ -36,4 +36,12 @@
       ];
     };
   };
+
+  xdg.mimeApps = {
+    enable = true;
+    defaultApplications = {
+      "text/markdown" = ["code.desktop"];
+      "text/x-markdown" = ["code.desktop"];
+    };
+  };
 }
