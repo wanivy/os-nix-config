@@ -1,6 +1,6 @@
 {
   imports = [
-    ./hardware-configuration.nix
+    ./hardware.nix
     ./modules/base.nix
     ./modules/nvidia.nix
     ./modules/power.nix
