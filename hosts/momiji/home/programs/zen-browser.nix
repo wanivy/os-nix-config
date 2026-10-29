@@ -15,6 +15,7 @@
       };
       settings = {
         "browser.aboutwelcome.enabled" = false;
+        "browser.toolbars.bookmarks.visibility" = "always";
         "browser.translations.automaticallyPopup" = false;
         "browser.translations.enable" = false;
         "general.autoScroll" = true;
