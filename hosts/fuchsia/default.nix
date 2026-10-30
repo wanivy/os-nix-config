@@ -80,6 +80,7 @@ in {
     iperf3
     mtr
     nano
+    rclone
     vim
   ];
 
