@@ -173,7 +173,7 @@
       branches = ["canary"];
       commandLineArgs = ["--ozone-platform=x11"];
       equicord.enable = true;
-      krisp.enable = true;
+      krisp.enable = false;
       openASAR.enable = true;
     };
   };
