@@ -29,12 +29,30 @@
       ente-auth
       eza
       keyguard
+      mangohud
       ripgrep
       openssl
       agenix.packages.${pkgs.stdenv.hostPlatform.system}.default
     ];
     file.".local/share/Steam/package/beta".text = "publicbeta";
+    file.".local/state/MangoHud/.keep".text = "";
   };
+
+  xdg.configFile."MangoHud/MangoHud.conf".text = ''
+    legacy_layout=0
+    position=top-left
+    fps
+    frametime
+    frame_timing
+    cpu_stats
+    gpu_stats
+    ram
+    vram
+    histogram
+    autostart_log=1
+    log_duration=0
+    output_folder=/home/yanville/.local/state/MangoHud
+  '';
 
   programs = {
     home-manager.enable = true;

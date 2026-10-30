@@ -5,7 +5,10 @@
     steam = {
       enable = true;
       package = pkgs.steam.override {
-        extraLibraries = packages: [packages.gamemode.lib];
+        extraLibraries = packages: [
+          packages.gamemode.lib
+          packages.mangohud
+        ];
       };
     };
     gamemode.enable = true;
