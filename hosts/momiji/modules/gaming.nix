@@ -1,4 +1,6 @@
 {pkgs, ...}: {
+  services.irqbalance.enable = true;
+
   programs = {
     steam = {
       enable = true;
