@@ -10,6 +10,7 @@
     ./modules/users.nix
     ./modules/gaming.nix
     ./modules/flclash.nix
+    ./modules/bettbox.nix
     ./modules/localsend.nix
     ./modules/womic.nix
     ./modules/openrgb.nix
