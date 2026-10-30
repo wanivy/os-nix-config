@@ -79,6 +79,7 @@
         home-manager.nixosModules.home-manager
         nix-flatpak.nixosModules.nix-flatpak
         lanzaboote.nixosModules.lanzaboote
+        disko.nixosModules.disko
         {nixpkgs.overlays = [unstableOverlay];}
         ./hosts/momiji
         {
