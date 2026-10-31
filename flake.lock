@@ -27,11 +27,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1793462718,
-        "narHash": "sha256-Pr5jxMGZ5pKgP3pF8G8mZwaJNWXsAeJNeetLlm+QAGA=",
+        "lastModified": 1793467680,
+        "narHash": "sha256-sCKzClVr/0QfKqhtdq+ESHSKd1DGjAWGK1dOou0gp5Q=",
         "ref": "refs/heads/main",
-        "rev": "122175fc9f05d7d98188cc805931f7f422c4d9e2",
-        "revCount": 2,
+        "rev": "7de1bc8f21c996496e307ee61e9c17e037ef6540",
+        "revCount": 3,
         "type": "git",
         "url": "ssh://git@github.com/wanivy/nix-calagopus.git"
       },
