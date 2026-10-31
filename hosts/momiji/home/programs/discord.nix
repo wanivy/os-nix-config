@@ -4,6 +4,7 @@
     useGlobalPkgs = false;
 
     config.plugins = {
+      addAttachments.enable = true;
       betterRoleContext = {
         enable = true;
         roleIconFileFormat = "png";
