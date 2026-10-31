@@ -33,7 +33,6 @@ in {
 
   users.users.trwz = {
     isNormalUser = true;
-    extraGroups = ["wheel"];
     shell = pkgs.zsh;
     openssh.authorizedKeys.keys = [keys.fuchsia.trwz];
   };
