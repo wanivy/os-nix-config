@@ -4,9 +4,8 @@ in {
   imports = [
     ./hardware.nix
     ./networking.nix
-    ./modules/caddy/sites/pterodactyl.nix
-    ./modules/mariadb
-    ./modules/pterodactyl
+    ./modules/calagopus
+    ./modules/caddy/sites/calagopus.nix
   ];
 
   boot.loader = {

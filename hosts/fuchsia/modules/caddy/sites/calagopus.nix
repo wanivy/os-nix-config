@@ -1,9 +1,8 @@
-{config, ...}: {
+{...}: {
   services.caddy.virtualHosts = {
     "manage.wanivy.com".extraConfig = ''
-      root * ${config.services.pterodactyl.panel.package}/public
       encode zstd gzip
-      php_server
+      reverse_proxy 127.0.0.1:8000
     '';
 
     "node.wanivy.com".extraConfig = ''

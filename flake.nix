@@ -8,10 +8,6 @@
     };
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-26.05";
     nixpkgs-unstable.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
-    pterodactyl = {
-      url = "github:PadowYT2/pterodactyl.nix";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
     home-manager = {
       url = "github:nix-community/home-manager/release-26.05";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -52,7 +48,6 @@
     agenix,
     nixpkgs,
     nixpkgs-unstable,
-    pterodactyl,
     home-manager,
     zen-browser,
     spicetify,
@@ -99,8 +94,7 @@
       modules = [
         agenix.nixosModules.default
         disko.nixosModules.disko
-        pterodactyl.nixosModules.default
-        {nixpkgs.overlays = [unstableOverlay pterodactyl.overlays.default];}
+        {nixpkgs.overlays = [unstableOverlay];}
         ./hosts/fuchsia
       ];
     };
