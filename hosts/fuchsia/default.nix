@@ -7,6 +7,7 @@ in {
     ./modules/calagopus
     ./modules/caddy/sites/calagopus.nix
     ./modules/mariadb
+    ./modules/postgresql
   ];
 
   boot.loader = {

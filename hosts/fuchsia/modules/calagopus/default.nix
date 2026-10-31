@@ -116,17 +116,6 @@ in {
     };
     environment.systemPackages = [panelPackage wingsPackage];
 
-    services.postgresql = {
-      enable = true;
-      ensureDatabases = ["calagopus"];
-      ensureUsers = [
-        {
-          name = "calagopus";
-          ensureDBOwnership = true;
-        }
-      ];
-    };
-
     services.redis.servers.calagopus = {
       enable = true;
       bind = "127.0.0.1";
