@@ -70,6 +70,7 @@
 
   networking.firewall = {
     enable = true;
+    interfaces.pterodactyl0.allowedTCPPorts = [3306];
     allowedTCPPorts = [
       80
       443

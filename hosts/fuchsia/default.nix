@@ -6,6 +6,7 @@ in {
     ./networking.nix
     ./modules/calagopus
     ./modules/caddy/sites/calagopus.nix
+    ./modules/mariadb
   ];
 
   boot.loader = {
