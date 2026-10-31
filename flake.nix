@@ -45,7 +45,7 @@
     };
 
     calagopus = {
-      url = "github:wanivy/nix-calagopus";
+      url = "git+ssh://git@github.com/wanivy/nix-calagopus.git";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
@@ -112,6 +112,7 @@
         system = hostSystems.fuchsia;
         modules = [
           inputs.agenix.nixosModules.default
+          inputs.calagopus.nixosModules.default
           {nixpkgs.overlays = [inputs.calagopus.overlays.default];}
           ./hosts/fuchsia
         ];

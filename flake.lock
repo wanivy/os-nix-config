@@ -27,17 +27,17 @@
         ]
       },
       "locked": {
-        "lastModified": 1793452077,
-        "narHash": "sha256-nsdBE99J5hA0C6L1DCb+3Ph/pGp4SIZWbDRxn0b/NOs=",
-        "owner": "wanivy",
-        "repo": "nix-calagopus",
-        "rev": "d789c941535828deb313e61acb6bc0501d799afb",
-        "type": "github"
+        "lastModified": 1793462718,
+        "narHash": "sha256-Pr5jxMGZ5pKgP3pF8G8mZwaJNWXsAeJNeetLlm+QAGA=",
+        "ref": "refs/heads/main",
+        "rev": "122175fc9f05d7d98188cc805931f7f422c4d9e2",
+        "revCount": 2,
+        "type": "git",
+        "url": "ssh://git@github.com/wanivy/nix-calagopus.git"
       },
       "original": {
-        "owner": "wanivy",
-        "repo": "nix-calagopus",
-        "type": "github"
+        "type": "git",
+        "url": "ssh://git@github.com/wanivy/nix-calagopus.git"
       }
     },
     "crane": {
