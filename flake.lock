@@ -20,6 +20,26 @@
         "type": "github"
       }
     },
+    "calagopus": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1793452077,
+        "narHash": "sha256-nsdBE99J5hA0C6L1DCb+3Ph/pGp4SIZWbDRxn0b/NOs=",
+        "owner": "wanivy",
+        "repo": "nix-calagopus",
+        "rev": "d789c941535828deb313e61acb6bc0501d799afb",
+        "type": "github"
+      },
+      "original": {
+        "owner": "wanivy",
+        "repo": "nix-calagopus",
+        "type": "github"
+      }
+    },
     "crane": {
       "locked": {
         "lastModified": 1789760033,
@@ -339,6 +359,7 @@
     "root": {
       "inputs": {
         "agenix": "agenix",
+        "calagopus": "calagopus",
         "disko": "disko",
         "freesm": "freesm",
         "home-manager": "home-manager",

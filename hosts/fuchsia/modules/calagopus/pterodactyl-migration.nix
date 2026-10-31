@@ -5,7 +5,7 @@
   ...
 }: let
   cfg = config.wanivy.calagopus.pterodactylMigration;
-  panelPackage = pkgs.callPackage ../../packages/calagopus-panel {};
+  panelPackage = pkgs.calagopus-panel;
 
   panelEnvironment = {
     APP_DEBUG = "false";
@@ -116,16 +116,6 @@ in {
   };
 
   config = lib.mkIf cfg.enable {
-    services.mysql = {
-      enable = true;
-      package = pkgs.mariadb;
-      settings.mysqld = {
-        bind-address = "127.0.0.1";
-        port = 3306;
-        skip-name-resolve = true;
-      };
-    };
-
     systemd.services = {
       calagopus-import-pterodactyl-dry-run = {
         description = "Validate a Pterodactyl to Calagopus migration";

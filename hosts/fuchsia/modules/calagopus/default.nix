@@ -4,8 +4,8 @@
   pkgs,
   ...
 }: let
-  panelPackage = pkgs.callPackage ../../packages/calagopus-panel {};
-  wingsPackage = pkgs.callPackage ../../packages/calagopus-wings {};
+  panelPackage = pkgs.calagopus-panel;
+  wingsPackage = pkgs.calagopus-wings;
   yaml = pkgs.formats.yaml {};
 
   panelEnvironment = {
