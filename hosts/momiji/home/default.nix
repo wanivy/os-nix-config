@@ -8,6 +8,7 @@
     ./programs/zen-browser.nix
     ./programs/ghostty.nix
     ./programs/discord.nix
+    ./programs/easyeffects.nix
     ./programs/git.nix
     ./programs/spicetify.nix
     ./programs/minecraft.nix
